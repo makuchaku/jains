@@ -84,9 +84,10 @@ var Page, PageObject = (function() {
 		$menuItems.on( 'click', function() {
 
 			var $el = $( this ),
-				idx = $el.index(),
+				idx = parseInt($($el.find("a")[0]).attr("page")), //$el.index(),
 				jump = function() {
-					bb.jump( idx + 1 );
+					//bb.jump( idx + 1 );
+					bb.jump( idx );
 				};
 			
 			current !== idx ? closeTOC( jump ) : closeTOC();

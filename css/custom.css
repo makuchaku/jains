@@ -244,6 +244,7 @@ a:hover {
 	text-align: justify;
 }
 
+/* Hacks by makuchaku */
 .image_fat {
 	margin-left : 83px;
 }
@@ -256,6 +257,16 @@ a:hover {
 	position: relative;
 	top : -17px;
 }
+
+.menu-toc li a { 
+	font-size: 14px;
+	line-height: 26px;
+	padding-left: 10px;
+}
+
+/* Hacks by makuchaku */
+
+
 
 @media screen and (max-width: 800px){
 	.no-js .menu-panel {
