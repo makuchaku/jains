@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+	<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	
+
+	<script type="text/javascript" src="js/klass.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="js/code.photoswipe.jquery-3.0.5.min.js"></script>
+	
+	
+	<script type="text/javascript">
+
+		(function(window, PhotoSwipe){
+		
+			
+			$(document).ready(function(){
+
+				// Image preloader from http://stackoverflow.com/a/476681/440362
+				$.fn.preload = function() {
+				    this.each(function(){
+				        $('<img/>')[0].src = this;
+				    });
+				}
+
+				var images_swipe = [];
+				var images_preload = ["css/loader.gif"];
+				for(var i=0; i<137; i++)
+				{
+					if((i <= 6) || (i%2 == 0)) 
+					{	// custom logic based on how images are generated from Corel Draw
+						images_swipe.push({ url: 'images/full/hex' + i + '.gif', caption: ''});
+					}
+				}
+
+				// preload images
+				$(images_preload).preload();
+
+				// Load PhotoSwipe
+				var
+					options = {
+						preventHide: true,
+						getImageSource: function(obj){
+							return obj.url;
+						},
+						getImageCaption: function(obj){
+							return obj.caption;
+						},
+						loop : false,
+						captionAndToolbarHide : false,
+						allowUserZoom : true,
+						captionAndToolbarOpacity : 0.8,
+						captionAndToolbarShowEmptyCaptions : false,
+						doubleTapZoomLevel : 1.5,
+						enableDrag : true,
+						preventSlideshow : true
+					},
+					instance = PhotoSwipe.attach( 
+						images_swipe, 
+						options 
+					);
+					
+					instance.show(0);
+					
+			}, false);
+			
+			
+		}(window, window.Code.PhotoSwipe));
+		
+	</script>
+	
+</head>
+<body>
+
+
+</body>
+</html>
